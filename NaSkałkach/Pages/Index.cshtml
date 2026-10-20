@@ -1,0 +1,110 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Na Skałkach";
+}
+
+<body>
+    <section id="główna">
+        <div class="full-width-section">
+            <img src="images/background.jpg" alt="Zdjęcie w tle" class="position-fixed top-0 left-0 vw-100 vh-100 object-fit-cover z-n1" />
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="position-relative w-100  border-3 overflow-hidden shadow-lg">
+                    <img src="images/homePhoto.jpeg" alt="Domki Na Skałkach" class="w-100 h-50 d-block object-fit-cover" />
+                    <div class="image-text-overlay position-absolute d-flex justify-content-center align-items-center">
+                        <h1 class="cenrtal-title fw-bold m-0">Domki Na Skałkach</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="overlay-card overlay-card-mainS text-center">
+                <div class="position-relative w-100 text-start">
+                    <p class="lead">
+                        Wszystko zaczęło się od morsowania w Wodospadzie Podgórnej i marzenia, by mieszkać blisko wodospadu. Trafiliśmy na działkę w kształcie bumeranga z bardzo trudnymi warunkami zabudowy. Przez kilka lat przyjeżdżaliśmy tu, porządkowaliśmy teren, spaliśmy w namiocie, by w końcu zrozumieć, że nie możemy być egoistami i musimy się podzielić z innymi pięknem tego miejsca. I tak zamiast jednej małej chatki powstała trochę większa, podzielona na 5 modułów, tak, aby każdy mógł się czuć tu swobodnie jak w małym górskim domku. Obok powstała wiata, z czasem przeszklona. Na leśnej polanie na górce stanęła sauna i bania i tak się zaczęła nasza przygoda z dzieleniem się pięknem tego miejsca z innymi morsami i miłośnikami Karkonoszy. Zapraszamy do prezentacji i odwiedzin!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="o-nas" class="d-flex justify-content-center align-items-center my-5">
+        <div class="overlay-card text-center p-4 p-md-5">
+            <div class="position-relative w-100 text-start">
+
+                <h2 class="fw-bold mb-3 text-center">O Nas</h2>
+
+                <p class="lead text-center mb-4">
+                    Witaj w naszym kameralnym zakątku! Stworzyliśmy to miejsce z pasji do natury, wygody i prawdziwego wypoczynku.
+                    Oferujemy 5 całorocznych, ekologicznych i antyalergicznych domków położonych zaledwie 200 metrów od pięknego Wodospadu Podgórnej,
+                    do którego doprowadzi Cię nasze prywatne, zamykane zejście.
+                </p>
+
+                <hr class="my-4 opacity-25" />
+                <h3 class="h4 fw-bold text-center mb-4">Poznaj Gospodarzy</h3>
+
+                <div class="row g-4 mb-2">
+                    <div class="col-md-6">
+                        <div class="p-4 border rounded-3 bg-light-subtle h-100 shadow-sm">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="badge bg-dark fs-6 px-3 py-2 me-2">Gospodarz</div>
+                                <h4 class="h3 fw-bold m-0 text-dark">Jacek</h4>
+                            </div>
+                            <p class="mb-0 text-secondary">
+                                Pochodzę z Wrocławia. Przez wiele lat byłem technikiem dentystycznym, a teraz zajmuję się obsługą i wynajmem domków.
+                                W przerwach jeżdżę na motorze, robię zdjęcia, żegluję, a zimą morsuję i jeżdżę na nartach.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="p-4 border rounded-3 bg-light-subtle h-100 shadow-sm">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="badge bg-dark fs-6 px-3 py-2 me-2">Architektka</div>
+                                <h4 class="h3 fw-bold m-0 text-dark">Mirella</h4>
+                            </div>
+                            <p class="mb-0 text-secondary">
+                                Pochodzę z Jeleniej Góry. Jestem lokalną architektką i pomagam Jackowi w prowadzeniu wynajmu domków.
+                                W przerwach tkam na krośnie, zajmuję się ekologią i gotuję wegańskie pyszności.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="oferta"></section>
+
+    <section id="galeria" class="container my-5">
+        <div class="gallery-bg">
+            <h2 class="fw-bold mb-4 text-center">Galeria</h2>
+
+            @if (Model.ImageUrls == null || !Model.ImageUrls.Any())
+            {
+                <p class="text-center text-muted">Brak zdjęć w galerii.</p>
+            }
+            else
+            {
+                <div class="gallery-grid">
+                    @foreach (var imageUrl in Model.ImageUrls)
+                    {
+                        <div class="gallery-item">
+                            <a href="@imageUrl" data-lightbox="galeria-domkow" data-title="Domki Na Skałkach">
+                                <img src="@imageUrl" alt="Domki Na Skałkach - zdjęcie galerii" loading="lazy" />
+                            </a>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </section>
+
+    <section id="cennik"></section>
+    <section id="blog"></section>
+    <section id="kontakt"></section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+</body>
